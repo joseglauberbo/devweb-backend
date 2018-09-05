@@ -1,8 +1,9 @@
 const express = require('express');
 const app = express();
 const router = express.Router();
+const morgan = require('morgan');
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.use(morgan('tiny'));
 
 const user = require('./user/userRoute');
 const index = require('./index/indexRoute');
@@ -14,4 +15,5 @@ app.use('/admin', admin);
 
 app.use('/imagem', express.static(__dirname+'/static'));
 
+app.listen(3000, () => console.log('Example app listening on port 3000!'));
 module.exports = app;
