@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/adminController');
+const controller = require('./adminController');
 
 router.get('/', controller.get);
 
