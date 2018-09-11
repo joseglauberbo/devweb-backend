@@ -4,7 +4,7 @@ var admins = [
         id: 1,
         age: 21,
         permission: 'yes',
-    }
+    },
 ];
 
 exports.get = (req, res, next) => {
