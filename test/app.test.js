@@ -1,11 +1,5 @@
+const app = require(../app);
 const request = require('supertest');
-const express = require('express');
-
-const app = express();
-
-app.get('/user', function(req, res) {
-  res.status(200).json({ name: 'john' });
-});
 
 request(app)
   .get('/user')
@@ -15,5 +9,3 @@ request(app)
   .end(function(err, res) {
     if (err) throw err;
   });
-
-module.exports = app;
