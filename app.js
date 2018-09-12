@@ -4,6 +4,10 @@ const router = express.Router();
 const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const cache = require('memory-cache');
+const mongoose = require('mongoose');
+
+//usando mongooose
+mongoose.connect('mongodb://localhost/test');
 
 //mostrar no terminal as requisições
 const morgan = require('morgan');
