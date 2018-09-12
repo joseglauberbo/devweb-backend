@@ -15,3 +15,5 @@ request(app)
   .end(function(err, res) {
     if (err) throw err;
   });
+
+module.exports = app;
