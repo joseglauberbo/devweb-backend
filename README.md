@@ -12,7 +12,7 @@ NPM: Gerente de pacotes javascript para o nodejs;
 
 Obs: Este repositório é utilizado para desenvolvimento de uma aplicação na disciplina de Princípios de Desenvolvimento Web do curso de Ciência da Computação - UFCG.
 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Do you have the read as a hobbie? Certainly you will like this application. It will manage what you are reading, get informations about what you read and it will help you with what do you want to read.
 
