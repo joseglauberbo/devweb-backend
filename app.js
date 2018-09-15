@@ -7,7 +7,7 @@ const cache = require('memory-cache');
 const mongoose = require('mongoose');
 
 //usando mongooose
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://localhost/test',  {useNewUrlParser: true});
 
 //mostrar no terminal as requisições
 const morgan = require('morgan');
@@ -27,11 +27,11 @@ app.post('/', function (req, res) {
 });
 
 //routes 
-const user = require('./user/userRoute');
-const index = require('./index/indexRoute');
-const admin = require('./admin/adminRoute');
-const club = require('./club/clubRoute');
-const bookcase = require('./bookcase/bookcaseRoute');
+const user = require('./src/user/userRoute');
+const index = require('./src/index/indexRoute');
+const admin = require('./src/admin/adminRoute');
+const club = require('./src/club/clubRoute');
+const bookcase = require('./src/bookcase/bookcaseRoute');
 
 app.use('/', index);
 app.use('/user', user);
