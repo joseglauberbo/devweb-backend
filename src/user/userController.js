@@ -1,20 +1,21 @@
-const users = require('../user/user.model'); 
+var User = require('../user/user.model'); 
 
-exports.get = (req, res) => {
-    const response = req.params.id ? users[req.params.id - 1] : users
-    res.status(200).send(response);
+exports.showUser = (req, res) => {
+    var user = req.body;
+    res.status(200).send(user);
 };
 
 exports.newUser = (req, res) => {
-
-    let newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password,
-        age: req.body.age,
-    });
-
-    newUser.save();        
+    var newUser = new User(req.body);
+    newUser.save(function (err){
+        if (err) {
+            res.status(500).json({ error: err.message});
+            res.end();
+            return;
+        }
+        res.json(newUser);
+        res.end();
+    });        
 }
 
 
