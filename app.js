@@ -21,10 +21,6 @@ app.use(function (req, res, next) {
     next();  // sem o next, a chamada para aqui, isso é necessário por que várias rotas podem corresponder a uma solicitação recebida.
 });
 
-app.post('/', function (req, res) {
-  // aqui estamos devolvendo ao cliente o corpo da requisição POST realizada pelo mesmo.
-  res.end(JSON.stringify(req.body, null, 2))
-});
 
 //routes 
 const user = require('./src/user/userRoute');
