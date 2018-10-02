@@ -1,8 +1,23 @@
-var Admin = require('../user/user.model');
+var Admin = require('../admin/admin.model');
+
+exports.showAllAdmins = (req, res) => {
+    Admin.find({})
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
 
 exports.showAdmin = (req, res) => {
-    const response = req.params.id ? users[req.params.id - 1] : admins
-    res.status(200).send(response);
+    Admin.findById(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
 };
 
 exports.newAdmin = (req, res) => {
@@ -13,7 +28,27 @@ exports.newAdmin = (req, res) => {
             res.end();
             return;
         }
-        res.json(newUser);
+        res.json(newAdmin);
         res.end();
     });        
 }
+
+exports.updateAdmin = (req, res) => {
+    Admin.updateOne()
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
+
+exports.deleteAdmin = (req, res) => {
+    Admin.deleteOne(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
