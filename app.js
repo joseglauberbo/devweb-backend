@@ -6,6 +6,7 @@ const PORT = process.env.PORT || 3000;
 const cache = require('memory-cache');
 const mongoose = require('mongoose');
 
+
 //usando mongooose
 mongoose.connect('mongodb://localhost/test',  {useNewUrlParser: true});
 
