@@ -32,7 +32,8 @@ exports.newUser = (req, res) => {
 };
 
 exports.updateUser = (req, res) => {
-    User.updateOne()
+    const userId = req.params.id;
+    User.findByIdAndUpdate(userId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })
@@ -42,7 +43,8 @@ exports.updateUser = (req, res) => {
 };
 
 exports.deleteUser = (req, res) => {
-    User.deleteOne(req.params.id)
+    const userId = req.params.id;
+    User.findByIdAndDelete(userId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })

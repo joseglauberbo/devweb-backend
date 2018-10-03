@@ -34,7 +34,8 @@ exports.newAdmin = (req, res) => {
 }
 
 exports.updateAdmin = (req, res) => {
-    Admin.updateOne()
+    const adminId = req.params.id;
+    Admin.findByIdAndUpdate(adminId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })
@@ -44,7 +45,8 @@ exports.updateAdmin = (req, res) => {
 };
 
 exports.deleteAdmin = (req, res) => {
-    Admin.deleteOne(req.params.id)
+    const adminId = req.params.id;
+    Admin.findByIdAndDelete(adminId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })
