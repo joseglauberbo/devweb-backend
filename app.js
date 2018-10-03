@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 
 //routes 
 const user = require('./src/user/userRoute');
-const index = require('./src/index/indexRoute');
+const index = require('./src/index');
 const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');

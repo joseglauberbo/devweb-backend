@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('./indexController');
 
 router.get('/', (req, res) => {
     const response = 'Bem vindo!';
