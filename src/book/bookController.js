@@ -1,7 +1,7 @@
-var Club = require ('../club/club.model');
+var Book = require ('../book/book.model');
 
-exports.showAllClubs = (req, res) => {
-    Club.find({})
+exports.showAllBook = (req, res) => {
+    Book.find({})
     .then((result) => {
         res.status(200).json(result);
     })
@@ -10,8 +10,8 @@ exports.showAllClubs = (req, res) => {
     })
 };
 
-exports.showClub = (req, res) => {
-    Club.findById(req.params.id)
+exports.showBook = (req, res) => {
+    Book.findById(req.params.id)
     .then((result) => {
         res.status(200).json(result);
     })
@@ -20,9 +20,9 @@ exports.showClub = (req, res) => {
     })
 };
 
-exports.newClub = (req, res) => {
-    var club = new Bookcase(req.body);
-    club.save({})
+exports.newBook = (req, res) => {
+    var newBook = new Book(req.body);
+    newBook.save({})
     .then((result) => {
         res.status(200).json(result);
     })
@@ -31,9 +31,9 @@ exports.newClub = (req, res) => {
     })
 };
 
-exports.updateClub = (req, res) => {
-    const clubId = req.params.id;
-    Club.findByIdAndUpdate(clubId, req.body)
+exports.updateBook = (req, res) => {
+    const bookId = req.params.id;
+    Book.findByIdAndUpdate(bookId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })
@@ -42,9 +42,9 @@ exports.updateClub = (req, res) => {
     })
 };
 
-exports.deleteClub = (req, res) => {
-    const clubId = req.params.id;
-    Club.findByIdAndDelete(clubId, req.body)
+exports.deleteBook = (req, res) => {
+    const bookId = req.params.id;
+    Book.findByIdAndDelete(bookId, req.body)
     .then((result) => {
         res.status(200).json(result);
     })

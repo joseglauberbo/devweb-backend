@@ -28,6 +28,7 @@ const index = require('./src/index');
 const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
+const swagger = require('./docs/')
 
 app.use('/', index);
 app.use('/user', user);
