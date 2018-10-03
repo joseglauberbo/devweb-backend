@@ -21,7 +21,6 @@ app.use(function (req, res, next) {
     next();  // sem o next, a chamada para aqui, isso é necessário por que várias rotas podem corresponder a uma solicitação recebida.
 });
 
-
 //routes 
 const user = require('./src/user/userRoute');
 const index = require('./src/index/indexRoute');
@@ -37,7 +36,6 @@ app.use('/bookcase', bookcase);
 
 //static images
 app.use('/imagem', express.static(__dirname+'/static'));
-
 
 //usando a variável de ambiente
 app.listen(PORT, () => {
