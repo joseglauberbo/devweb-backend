@@ -1,36 +1,52 @@
-var clubs = [
-    club1 = {
-        name: "luluzinha",
-        id: 1,
-        type: "mistery",
-        participants: ["helly", "samara"],
-        books: ["sherlock holmes", "how is this woman?"],
-   },
-    club2 = {
-        name: "pocs",
-        id: 2,
-        type: "love story",
-        participants: ["grobi"],
-        books: ["me before you",],
-   },
-];
+var Club = require ('../club/club.model');
 
-exports.get = (req, res, next) => {
-    const response = req.params.id ? clubs[req.params.id - 1] : clubs
-    res.status(200).send(response);
-}
+exports.showAllClubs = (req, res) => {
+    Club.find({})
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
 
-exports.delete = (req, res, next) => {
-    const response = "got a DELETE request at /:id";
-    res.status(200).send(response);
-}
+exports.showClub = (req, res) => {
+    Club.findById(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
 
-exports.put = (req, res, next) => {
-    const response = "got a PUT request at /:id";
-    res.status(200).send(response);
-}
+exports.newClub = (req, res) => {
+    var club = new Bookcase(req.body);
+    club.save({})
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
 
-exports.post = (req, res, next) => {
-    const response = "got a POST request at /:id";
-    res.status(200).send(response);
-}
+exports.updateClub = (req, res) => {
+    Club.updateOne()
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
+
+exports.deleteClub = (req, res) => {
+    Club.deleteOne(req.params.id)
+    .then((result) => {
+        res.status(200).json(result);
+    })
+    .catch((error) => {
+        res.status(400).send(error);
+    })
+};
