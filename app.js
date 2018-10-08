@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(function (req, res, next) {
     res.header('Content-Type', 'application/json');
-    next();  // sem o next, a chamada para aqui, isso é necessário por que várias rotas podem corresponder a uma solicitação recebida.
+    next(); 
 });
 
 //routes 
