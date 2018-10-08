@@ -6,6 +6,10 @@ const PORT = process.env.PORT || 3000;
 const cache = require('memory-cache');
 const mongoose = require('mongoose');
 
+var options = {
+        app:{ socketOptios: {keepAlive: 1, connectTimeoutMS: 30000}},
+        replset:{ socketOptions: {keepAlive: 1, connectTimeoutMS: 30000 }}
+};
 
 //usando mongooose
 mongoose.connect('mongodb://localhost/test',  {useNewUrlParser: true});
@@ -19,12 +23,13 @@ app.use(function (req, res, next) {
 });
 
 //routes 
+const index = require('./index');
 const user = require('./src/user/userRoute');
-const index = require('./src/index');
 const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
 const swagger = require('./docs/swagger.route.js')
+
 
 app.use('/', index);
 app.use('/user', user);
@@ -32,6 +37,7 @@ app.use('/admin', admin);
 app.use('/club', club);
 app.use('/bookcase', bookcase);
 app.use('/docs', swagger)
+
 
 //static images
 app.use('/imagem', express.static(__dirname+'/static'));
