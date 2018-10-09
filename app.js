@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 3000;
 const cache = require('memory-cache');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 var options = {
         app:{ socketOptios: {keepAlive: 1, connectTimeoutMS: 30000}},
@@ -29,6 +30,8 @@ const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
 const swagger = require('./docs/swagger.route.js')
+const authentication = require('.docs/authentication/authenticationRoute');
+
 
 
 app.use('/', index);
