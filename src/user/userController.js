@@ -20,6 +20,10 @@ exports.showUser = (req, res) => {
     })
 };
 
+exports.getUserByEmail = (email) => {
+    return User.findOne({'email': email});
+}
+
 exports.newUser = (req, res) => {
     var newUser = new User(req.body);
     newUser.save({})
