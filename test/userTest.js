@@ -6,7 +6,7 @@ var logger = require('mocha-logger');
 
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-var app = require('../src/app');
+var app = require('../app');
 var should = chai.should();
 
 chai.use(chaiHttp);

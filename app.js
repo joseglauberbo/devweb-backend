@@ -29,8 +29,9 @@ const user = require('./src/user/userRoute');
 const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
+const authentication = require('./src/authentication/authenticationRoute');
 const swagger = require('./docs/swagger.route.js')
-const authentication = require('.docs/authentication/authenticationRoute');
+
 
 
 

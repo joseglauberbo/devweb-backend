@@ -1,6 +1,6 @@
 const jsonWebToken = require('jsonwebtoken');
-const userController = require('./src/user/userController');
-const autheticationConfig = require('./config/authentication');
+const userController = require('../user/userController');
+const autheticationConfig = require('../../config/authentication');
 
 
 exports.login = (req, res) => {
