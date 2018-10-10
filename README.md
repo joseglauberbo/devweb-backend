@@ -25,3 +25,11 @@ Technologies used:
   NPM:  Javascript package manager for nodejs;
 
 Ps:. This repository is using for application development in principles of web development in Computer Science at UFCG.
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+Para rodar o projeto:
+
+1) mongod (conexão com o banco de dados);
+2) npm start (atualiza dependências e inicializa o sistema);
+3) npm test (rodar os testes);
