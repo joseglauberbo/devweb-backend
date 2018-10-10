@@ -28,7 +28,6 @@ app.use(function (req, res, next) {
 //routes 
 const index = require('./index');
 const user = require('./src/user/userRoute');
-const admin = require('./src/admin/adminRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
 const authentication = require('./src/authentication/authenticationRoute');
@@ -36,7 +35,6 @@ const swagger = require('./docs/swagger.route.js')
 
 app.use('/', index);
 app.use('/user', user);
-app.use('/admin', admin);
 app.use('/club', club);
 app.use('/bookcase', bookcase);
 app.use('/authentication', authentication);
