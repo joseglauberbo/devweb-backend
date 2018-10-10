@@ -32,8 +32,8 @@ exports.login = (req, res) => {
         }); 
 };
 
-exports.authenticate = (req, res) => {
-    console.log("eu nao sei");
+exports.authenticate = (req, res, next) => {
+    console.log("testando");
     let token = undefined;
     if (req.headers['authorization']) {
         token = req.headers['authorization'].split(" ")[1];
@@ -59,7 +59,7 @@ exports.authenticate = (req, res) => {
     }
 }
 
-exports.authById = (req, res) => {
+exports.authById = (req, res, next) => {
     const userId = req._id;
     if (userId) {
         const reqId = req.params.idUser;
