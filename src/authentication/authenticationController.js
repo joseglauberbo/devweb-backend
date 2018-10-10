@@ -1,6 +1,6 @@
 const jsonWebToken = require('jsonwebtoken');
 const userController = require('../user/userController');
-const autheticationConfig = require('../../config/authentication');
+const authenticationConfig = require('../../config/authentication');
 
 
 exports.login = (req, res) => {
@@ -18,7 +18,7 @@ exports.login = (req, res) => {
                     const token = jsonWebToken.sign({
                         _id: user._id,
                         email: user.email,
-                    }, config.jwtSecret);
+                    }, authenticationConfig.jwtSecret);
                     return res.json({ userID: user._id, token });
                 } else {
                     return res.json({ 'message': 'Failed. Wrong password'});
@@ -74,5 +74,5 @@ exports.authById = (req, res) => {
 }
 
 const decodeToken = (token) => {
-    return jwt.verify(token, config.jwtSecret);
+    return jsonWebToken.verify(token, authenticationConfig.jwtSecret);
 }

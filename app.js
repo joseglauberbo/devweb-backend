@@ -6,6 +6,8 @@ const PORT = process.env.PORT || 3000;
 const cache = require('memory-cache');
 const mongoose = require('mongoose');
 const cors = require('cors');
+var http = require('http');
+var server = http.createServer(app);
 
 var options = {
         app:{ socketOptios: {keepAlive: 1, connectTimeoutMS: 30000}},
@@ -32,23 +34,20 @@ const bookcase = require('./src/bookcase/bookcaseRoute');
 const authentication = require('./src/authentication/authenticationRoute');
 const swagger = require('./docs/swagger.route.js')
 
-
-
-
 app.use('/', index);
 app.use('/user', user);
 app.use('/admin', admin);
 app.use('/club', club);
 app.use('/bookcase', bookcase);
-app.use('/docs', swagger)
-
+app.use('/authentication', authentication);
+app.use('/docs', swagger);
 
 //static images
 app.use('/imagem', express.static(__dirname+'/static'));
 
 //usando a variável de ambiente
-app.listen(PORT, () => {
-	console.log(`Example app listening on port ${3000}`);
+server.listen(PORT, () => {
+    console.log(`Server is listening on port ${PORT}`);
 });
 
 //fazendo com que seja acessível
