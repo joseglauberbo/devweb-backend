@@ -13,6 +13,10 @@ var clubSchema = new mongoose.Schema({
  id: Number,
  participants: [],
  books: [],
+ usuario_id: {
+	type: mongoose.SchemaTypes.ObjectId,
+	ref: 'User',
+	required: true},
  });
 
 var Club = mongoose.model('Club', clubSchema);

@@ -23,8 +23,11 @@ var BookSchema = new mongoose.Schema({
 			large: string,
 			extraLarge: string
 		},
-		language: string,
-	},
+		language: string,},
+		usuario_id: {
+			type: mongoose.SchemaTypes.ObjectId,
+			ref: 'User',
+			required: true},
 });
 
 var Book = mongoose.model('Book', UserSchema);
