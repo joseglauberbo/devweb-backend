@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const router = express.Router();
 const bodyParser = require('body-parser');
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 const cache = require('memory-cache');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -28,6 +28,7 @@ app.use(function (req, res, next) {
 //routes 
 const index = require('./index');
 const user = require('./src/user/userRoute');
+const book = require('./src/book/bookRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
 const authentication = require('./src/authentication/authenticationRoute');
@@ -35,6 +36,7 @@ const swagger = require('./docs/swagger.route.js')
 
 app.use('/', index);
 app.use('/user', user);
+app.use('/livros', book);
 app.use('/club', club);
 app.use('/bookcase', bookcase);
 app.use('/authentication', authentication);

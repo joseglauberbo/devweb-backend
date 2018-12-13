@@ -21,5 +21,5 @@ var BookSchema = new mongoose.Schema({
 	}
 });
 
-var Book = mongoose.model('Book', UserSchema);
+var Book = mongoose.model('Book', BookSchema);
 module.exports = Book;
