@@ -28,10 +28,10 @@ exports.newUser = (req, res) => {
     var newUser = new User(req.body);
     newUser.save({})
     .then((result) => {
-        res.status(200).json(result);
+        res.status(400).json("User not created");
     })
     .catch((error) => {
-        res.status(400).send(error);
+        res.status(201).json("User created");
     })
 };
 

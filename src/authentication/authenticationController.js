@@ -11,7 +11,7 @@ exports.login = (req, res) => {
     userController.getUserByEmail(email)
         .then((user) => {
             if (!user) {
-                return res.json({ 'message': 'Failed. User not found.'});
+                return res.status(400).json("Failed. User not found.");
             } else if (user) {
                 const verification = (email === user.email && password === user.password);
                 if (verification) {
@@ -19,16 +19,14 @@ exports.login = (req, res) => {
                         _id: user._id,
                         email: user.email,
                     }, authenticationConfig.jwtSecret);
-                    return res.json({ userID: user._id, token });
+                    return res.status(201).json({ userID: user._id, token: token });
                 } else {
-                    return res.json({ 'message': 'Failed. Wrong password'});
+                    return res.status(400).json("Failed. User not created");
                 }
             }
         })
         .catch((err) => {
-            console.log(err);
-            const error = {' message':'Something went wrong, try again. ', 'error': err.message };
-            return res.json(error);
+            return res.status(400).json('Error')
         }); 
 };
 
