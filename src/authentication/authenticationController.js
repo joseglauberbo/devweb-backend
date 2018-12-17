@@ -7,6 +7,8 @@ exports.login = (req, res) => {
 
     const email = req.body.email;
     const password = req.body.password;
+    console.log(email)
+    console.log(password)
 
     userController.getUserByEmail(email)
         .then((user) => {
@@ -31,7 +33,6 @@ exports.login = (req, res) => {
 };
 
 exports.authenticate = (req, res, next) => {
-    console.log("testando");
     let token = undefined;
     if (req.headers['authorization']) {
         token = req.headers['authorization'].split(" ")[1];

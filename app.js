@@ -31,7 +31,7 @@ const user = require('./src/user/userRoute');
 const book = require('./src/book/bookRoute');
 const club = require('./src/club/clubRoute');
 const bookcase = require('./src/bookcase/bookcaseRoute');
-const authentication = require('./src/authentication/authenticationRoute');
+const authentication = require('./src/authentication/authenticationRoute.js');
 const swagger = require('./docs/swagger.route.js')
 
 app.use('/', index);
